@@ -2,14 +2,6 @@
 var juice = require('juice');
 var result = juice("<style>div{color:red;}</style><div/>");
 
-// inliner
-var inlineCss = require('inline-css');
-var html = "<style>div{color:red;}</style><div/>";
-
-inlineCss(html, options)
-    .then(function(html) { console.log(html); });
-
-
 
 
 $("#cache_html").val(result);
@@ -109,6 +101,7 @@ function replaceUrl(old_url, new_url) {
 }
 
 
+
 /*
 
 https://tinyurl.com/mr3cvn7u -> https://www.youtube.com/watch?v=jRXRlbcIeXA&utm_term=12+stycznia+2023&utm_medium=email&utm_source=audiostereo.pl&utm_campaign=Audio+Stereo
@@ -131,7 +124,7 @@ https://tinyurl.com/5c385pdw -> https://www.tophifi.pl/?utm_term=12+stycznia+202
 
 //ljurski
 //vH87my2yWhYHcqxLmlWDDmx5j5tF1GzskufLPTV2DuF6RoL33tFlZ4fCdSxq
-
+/*
 function changeToTinyUrl(url_to_change) {
     console.log("changeToTinyUrl");
     $.ajax({
@@ -153,3 +146,4 @@ function changeToTinyUrl(url_to_change) {
         }
     });
 }
+*/
