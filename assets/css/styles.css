@@ -1,0 +1,62 @@
+html {
+    height: 100%;
+    width: 100%;
+    display: block;
+}
+
+body {
+    height: 90%;
+}
+
+#url_to_change,
+#output_url_text {
+    height: 100%;
+    width: 100%;
+    overflow-y: scroll;
+    resize: none;
+}
+
+#regex {
+    height: 100%;
+    width: 100%;
+    overflow-y: scroll;
+    resize: none;
+}
+
+#url_to_change {
+    caret-color: black;
+    font-style: normal;
+    /*must be same as in the svg for caret to align*/
+    font-variant: normal;
+    font-size: 13.3px;
+    padding: 2px;
+    font-family: monospace;
+}
+
+div.regex {
+    height: 10%;
+    width: 95%;
+    display: flex;
+    margin: 5% 0;
+}
+
+div.url_to_change {
+    height: 40%;
+    width: 95%;
+    margin: 5% 0;
+    display: flex;
+}
+
+div.output_url_to_change {
+    height: 40%;
+    width: 95%;
+    margin: 5% 0;
+    display: flex;
+}
+
+div.main_div {
+    height: 100%;
+    width: 100%;
+}
+
+h3.stats {}
