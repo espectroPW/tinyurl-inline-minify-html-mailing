@@ -2,15 +2,17 @@
 <html>
 
 <head>
+    <meta charset="ISO-8859-1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <script src="/assets/scripts.js"></script>
-    <link rel="stylesheet" href="/assets/styles.css">
+    <script src="./assets/scripts.js"></script>
+    <link rel="stylesheet" href="./assets/styles.css" type="text/css">
 </head>
 
 <body>
     <h4>Przydatne linki: </h4>
     <p><a href="https://htmlemail.io/inline/">https://htmlemail.io/inline/</a></p>
-    <p><a href="https://templates.mailchimp.com/resources/inline-css/">https://templates.mailchimp.com/resources/inline-css/</a>
+    <p><a
+            href="https://templates.mailchimp.com/resources/inline-css/">https://templates.mailchimp.com/resources/inline-css/</a>
     </p>
     <p><a href="https://www.willpeavy.com/tools/minifier/">https://www.willpeavy.com/tools/minifier/</a></p>
 
