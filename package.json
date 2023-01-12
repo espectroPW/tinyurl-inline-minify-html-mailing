@@ -1,6 +1,5 @@
 {
     "dependencies": {
-        "html-minifier": "^4.0.0",
         "inline-css": "^4.0.1",
         "juice": "^8.1.0",
         "minify": "^9.1.0"

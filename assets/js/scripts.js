@@ -121,14 +121,18 @@ function inlineCss(html) {
 
 function minifyHtml(html) {
 
+    return html.replace(/\n\s+|\n/g, "")
+        .replace(/\:\s*/g, ':')
+        .replace(/\n/g, '')
+        .replace(/\s\s/g, '')
+        .replace(/\;\}/g, '}');;
+
+    /*
     var minified = minify(html, {
         removeAttributeQuotes: true
     });
-    console.log(minified);
 
-
-
-    return minified;
+    return minified;*/
 }
 
 function createChanges() {
@@ -139,10 +143,10 @@ function createChanges() {
     var inlinedCSS = inlineCss($("#output_url_text").val());
     $("#inline_html").val(inlinedCSS);
 
-    /*
-        var minifHtml = minifyHtml($("#inline_html").val());
-        $("#minified_html").val(minifHtml);
-    */
+
+    var minifHtml = minifyHtml($("#inline_html").val());
+    $("#minified_html").val(minifHtml);
+
 
 }
 
