@@ -5,9 +5,10 @@
     <meta charset="ISO-8859-1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <!--<script data-main="scripts" src="./node_modules/juice/client.js"></script>-->
+    <script src="./dist/main.js"></script>
 
-    <script src="./assets/js/scripts.js"></script>
-    <link rel="stylesheet" href="./assets/css/styles.css" type="text/css">
+    <!--<script src="./assets/js/scripts.js"></script>-->
+    <!--<link rel="stylesheet" href="./assets/css/styles.css" type="text/css">-->
 </head>
 
 <body>
@@ -35,8 +36,18 @@
             <textarea id="output_url_text"></textarea>
         </div>
 
+        <h3>Inline css</h3>
+        <div class="inline_html">
+            <textarea id="inline_html"></textarea>
+        </div>
+
         <h3>Podgląd: </h3>
-        <div id="cache_html"></div>
+        <div id="cache_html"><iframe></iframe></div>
+
+        <br>
+        ***************************************
+        <br>
+
 
     </div>
 
