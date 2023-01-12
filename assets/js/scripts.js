@@ -17,11 +17,7 @@ $(document).ready(function() {
 
     });
 
-
-
-
 });
-
 
 function replaceByNewUrl() {
 
