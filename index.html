@@ -23,30 +23,40 @@
         <h1>Wprowadz html do podmiany: </h1>
         <!--oninput="render()"-->
         <div class="url_to_change">
+            <h3 class='stats'>Wykryto linków: <span></span></h3>
             <textarea contenteditable="true" id="url_to_change" name="url_to_change" value=""></textarea>
             <br>
         </div>
         <div class="regex">
+            <h3 class='stats'>Podmianiono linków:<span></span></h3>
             <textarea id="regex"></textarea>
             <input type="button" id="sub" value="Konwertuj">
         </div>
 
+
         <div class="output_url_to_change">
-            <p id="output_url_to_change"> </p>
+            <h3>Wynik z podmianą:</h3>
             <textarea id="output_url_text"></textarea>
         </div>
 
-        <h3>Inline css</h3>
+
         <div class="inline_html">
+            <h3>Inline css</h3>
             <textarea id="inline_html"></textarea>
         </div>
 
-        <h3>Minified</h3>
+
         <div class="minified_html">
+            <h3>Minified</h3>
             <textarea id="minified_html"></textarea>
         </div>
 
         <h3>Podgląd: </h3>
+        <div>
+            <span class="preview" data-preview-mode="1">Mobile</span>
+            <span class="preview" data-preview-mode="2">Tablet</span>
+            <span class="preview" data-preview-mode="3">Desktop</span>
+        </div>
         <div id="cache_html"></div>
         <div id="cache_html_hiden"></div>
 

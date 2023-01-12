@@ -87,4 +87,24 @@ div.minified_html {
     display: flex;
 }
 
+div#cache_html {
+    outline: 1px solid red;
+    margin: 0 auto;
+}
+
+.preview {
+    outline: 1px solid black;
+    margin: 5px;
+    padding: 5px;
+}
+
+.preview:hover {
+    background-color: antiquewhite;
+    cursor: pointer;
+}
+
+.preview.active {
+    background-color: aqua;
+}
+
 h3.stats {}

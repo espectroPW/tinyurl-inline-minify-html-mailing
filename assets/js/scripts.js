@@ -1,7 +1,6 @@
 //inliner
 var juice = require('juice');
 
-
 var link_changed = 0;
 var elements = 0;
 var link_unique = 0;
@@ -9,20 +8,35 @@ var count_el = 0;
 var list_changed_links = [];
 var debounce = null;
 
+
 $(document).ready(function() {
 
-
     $(".regex input#sub").click(function() {
-        console.log("clicked");
+
+        link_changed = 0;
+        elements = 0;
+        link_unique = 0;
+        count_el = 0;
+        list_changed_links = [];
+        debounce = null;
         var output_element = '#output_url_text';
+
         $("textarea#regex").val('');
         $("textarea#output_url_text").val('');
-        $(".stats").remove();
+        $(".stats span").text('');
         replaceByNewUrl();
+    });
 
+
+    $(".preview").click(function() {
+        var preview_mode_width = [350, 550, 950];
+        $("#cache_html").css("width", preview_mode_width[$(this).data("preview-mode") - 1]);
+        $(".preview").removeClass("active");
+        $(this).toggleClass("active");
     });
 
 });
+
 
 function replaceByNewUrl() {
 
@@ -32,8 +46,8 @@ function replaceByNewUrl() {
     count_el = $("#cache_html").find("a").length;
     $("textarea#output_url_text").val(backup_string);
 
-    $("textarea#url_to_change").before("<h3 class='stats'>Wykryto linków: (" + elements + "/" + count_el + ")</h3>");
-    $("textarea#regex").before("<h3 class='stats'>Podmianiono linków: (" + link_changed + ")</h3>");
+    //$("textarea#url_to_change").before("(" + elements + "/" + count_el + ")</h3>");
+    //$("textarea#regex").before("<h3 class='stats'>Podmianiono linków: (" + link_changed + ")</h3>");
 
     $("#cache_html").find("a").each(function() {
 
@@ -41,7 +55,7 @@ function replaceByNewUrl() {
         if (old_url != 'undefined' && old_url) {
             debounce = setTimeout(function() {
                 getTiny(old_url);
-            }, 500);
+            }, 50);
         } else {
             createChanges();
         }
@@ -52,13 +66,13 @@ function replaceByNewUrl() {
 
 function getTiny(url) {
 
-    if (url && url != ' ') {
+    if (url && url != ' ' && jQuery.inArray(url, list_changed_links) == -1) {
         elements += 1;
         $.ajax({
             url: 'https://api.tinyurl.com/create',
             dataType: 'text',
             type: 'post',
-            async: true,
+            async: false,
             contentType: 'application/x-www-form-urlencoded',
             data: {
                 url: url,
@@ -103,7 +117,7 @@ function replaceUrl(old_url, new_url) {
 
     $("textarea#output_url_text").val(val_erp);
 
-    $("div.regex h3.stats").text("Podmieniono linków: (" + link_unique + "/" + link_changed + ")");
+    $("div.regex h3.stats span").text("(" + link_unique + "/" + link_changed + ")");
 
     $("#cache_html").html(val_erp);
 
@@ -137,8 +151,8 @@ function minifyHtml(html) {
 
 function createChanges() {
 
-    $(".url_to_change h3.stats").text("Wykryto linków: (" + elements + "/" + count_el + ")");
-    $("div.regex h3.stats").text("Podmieniono linków: (" + link_unique + "/" + link_changed + ")");
+    $(".url_to_change h3.stats span").text("(" + elements + "/" + count_el + ")");
+    $("div.regex h3.stats span").text("(" + link_unique + "/" + link_changed + ")");
 
     var inlinedCSS = inlineCss($("#output_url_text").val());
     $("#inline_html").val(inlinedCSS);
