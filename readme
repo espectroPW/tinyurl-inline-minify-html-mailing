@@ -1,8 +1,6 @@
 //reeadme
 
 
-
-
 apka do podmiany linków a href="" na tinyurl
 
 do konwersji css na inline
@@ -22,7 +20,13 @@ Zrobione:
 
 
 Użyte skrypty:
+npm juice  https://www.npmjs.com/package/juice
+npm inline-css
 
-juice: https://www.npmjs.com/package/juice
-inline-css
+
+
+Instalacja
+
+npm install
+
 
