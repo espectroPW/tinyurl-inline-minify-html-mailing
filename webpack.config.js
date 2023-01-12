@@ -8,11 +8,12 @@ module.exports = {
     },
     module: {
         rules: [{
-            test: "/.assets/css/styles.css/",
+            test: /\.css$/,
             use: [
                 'style-loader',
                 'css-loader'
             ]
         }]
-    }
+    },
+    mode: 'development',
 }

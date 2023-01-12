@@ -41,8 +41,14 @@
             <textarea id="inline_html"></textarea>
         </div>
 
+        <h3>Minified</h3>
+        <div class="minified_html">
+            <textarea id="minified_html"></textarea>
+        </div>
+
         <h3>Podgląd: </h3>
-        <div id="cache_html"><iframe></iframe></div>
+        <div id="cache_html"></div>
+        <div id="cache_html_hiden"></div>
 
         <br>
         ***************************************
