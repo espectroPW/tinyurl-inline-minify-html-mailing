@@ -20,10 +20,7 @@ $(document).ready(function() {
         list_changed_links = [];
         debounce = null;
         var output_element = '#output_url_text';
-
-        $("textarea#regex").val('');
-        $("textarea#output_url_text").val('');
-        $(".stats span").text('');
+        clearTextarea();
         replaceByNewUrl();
     });
 
@@ -45,56 +42,61 @@ function replaceByNewUrl() {
     $("#cache_html").html(inlineCss(backup_string));
     count_el = $("#cache_html").find("a").length;
     $("textarea#output_url_text").val(backup_string);
+    procesUrlHtml();
 
-    //$("textarea#url_to_change").before("(" + elements + "/" + count_el + ")</h3>");
-    //$("textarea#regex").before("<h3 class='stats'>Podmianiono linków: (" + link_changed + ")</h3>");
+
+}
+
+
+function procesUrlHtml() {
 
     $("#cache_html").find("a").each(function() {
-
         var old_url = $(this).attr("href");
         if (old_url != 'undefined' && old_url) {
             debounce = setTimeout(function() {
-                getTiny(old_url);
+                if (old_url && old_url != ' ' && jQuery.inArray(old_url, list_changed_links) == -1) {
+                    getTiny(old_url);
+                    elements += 1;
+                }
             }, 50);
         } else {
             createChanges();
         }
-
     });
+}
+
+function clearTextarea() {
+    $("textarea#regex").val('');
+    $("textarea#output_url_text").val('');
+    $(".stats span").text('');
 }
 
 
 function getTiny(url) {
 
-    if (url && url != ' ' && jQuery.inArray(url, list_changed_links) == -1) {
-        elements += 1;
-        $.ajax({
-            url: 'https://api.tinyurl.com/create',
-            dataType: 'text',
-            type: 'post',
-            async: false,
-            contentType: 'application/x-www-form-urlencoded',
-            data: {
-                url: url,
-                domain: "tinyurl.com",
-                api_token: "vH87my2yWhYHcqxLmlWDDmx5j5tF1GzskufLPTV2DuF6RoL33tFlZ4fCdSxq",
-            },
-            success: function(data, textStatus, jQxhr) {
-                var dane = jQuery.parseJSON(data);
-                //return dane.data.tiny_url;
-                //console.log(dane.data.tiny_url);
-                $(this).attr("href", dane.data.tiny_url);
-                if (dane.data.tiny_url != '') {
-                    replaceUrl(url, dane.data.tiny_url);
-                    clearTimeout(debounce);
-                }
-            },
-            error: function(jqXhr, textStatus, errorThrown) {
-                //alert(textStatus + errorThrown);
-                console.log("url: " + url + " err: " + textStatus + errorThrown);
+    $.ajax({
+        url: 'https://api.tinyurl.com/create',
+        dataType: 'text',
+        type: 'post',
+        async: false,
+        contentType: 'application/x-www-form-urlencoded',
+        data: {
+            url: url,
+            domain: "tinyurl.com",
+            api_token: "vH87my2yWhYHcqxLmlWDDmx5j5tF1GzskufLPTV2DuF6RoL33tFlZ4fCdSxq",
+        },
+        success: function(data, textStatus, jQxhr) {
+            var dane = jQuery.parseJSON(data);
+            $(this).attr("href", dane.data.tiny_url);
+            if (dane.data.tiny_url != '') {
+                replaceUrl(url, dane.data.tiny_url);
+                clearTimeout(debounce);
             }
-        });
-    }
+        },
+        error: function(jqXhr, textStatus, errorThrown) {
+            console.log("url: " + url + " err: " + textStatus + errorThrown);
+        }
+    });
 
 }
 
@@ -117,20 +119,25 @@ function replaceUrl(old_url, new_url) {
 
     $("textarea#output_url_text").val(val_erp);
 
-    $("div.regex h3.stats span").text("(" + link_unique + "/" + link_changed + ")");
+    changeNumbersOfProcess(link_unique, link_changed);
 
     $("#cache_html").html(val_erp);
 
     createChanges();
 }
 
+function changeNumbersOfProcess(link_unique, link_changed) {
+    $("div.regex h3.stats span").text("(" + link_unique + "/" + link_changed + ")");
+    createChanges();
+}
+
+
+
 function inlineCss(html) {
 
     var juice_inline = juice(html);
 
     return juice_inline;
-
-
 }
 
 function minifyHtml(html) {
@@ -160,8 +167,6 @@ function createChanges() {
 
     var minifHtml = minifyHtml($("#inline_html").val());
     $("#minified_html").val(minifHtml);
-
-
 }
 
 
