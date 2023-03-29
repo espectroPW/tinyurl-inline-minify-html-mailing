@@ -1,6 +1,7 @@
 //inliner
 var juice = require('juice');
-import $ from 'jquery';
+import jQuery from "jquery";
+window.$ = window.jQuery = jQuery;
 const Mustache = require('mustache');
 
 var link_changed = 0;
@@ -191,10 +192,7 @@ https://tinyurl.com/5c385pdw -> https://www.tophifi.pl/?utm_term=12+stycznia+202
 
 var data_stats = '';
 
-$(document).ready(function() {
-    getDataFromApi();
 
-});
 
 function renderStats(dane) {
     console.log(dane);

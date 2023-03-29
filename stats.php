@@ -10,13 +10,14 @@
                 <li></li>
             </ul>
         </div>
-
-
-
-
     </div>
 
 
+    <script>
+        $(document).ready(function() {
+            getDataFromApi();
+        });
+    </script>
 
 </body>
 

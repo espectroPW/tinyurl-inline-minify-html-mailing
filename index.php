@@ -49,9 +49,10 @@
         <div>
             <span class="preview" data-preview-mode="1">Mobile</span>
             <span class="preview" data-preview-mode="2">Tablet</span>
-            <span class="preview" data-preview-mode="3">Desktop</span>
+            <span class="preview active" data-preview-mode="3">Desktop</span>
         </div>
-        <div id="cache_html"></div>
+        <br>
+        <div id="cache_html" style="width: 950px;"></div>
         <div id="cache_html_hiden"></div>
 
 
