@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
 
+<head>
 <?php require_once 'templates/header.php'; ?>
+<script src="./dist/index.js"></script>
+
+</head>
 
 <body>
     <br>

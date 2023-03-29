@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
+<head>
 <?php require_once 'templates/header.php'; ?>
+<script src="./dist/stats.js"></script>
+
+</head>
 <body>
 
 
@@ -11,13 +15,6 @@
             </ul>
         </div>
     </div>
-
-
-    <script>
-        $(document).ready(function() {
-            getDataFromApi();
-        });
-    </script>
 
 </body>
 
