@@ -1,18 +1,12 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-Ua-Compatible" content="IE=edge,chrome=1">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <!--<script data-main="scripts" src="./node_modules/juice/client.js"></script>-->
-    <script src="./dist/main.js"></script>
-
-    <!--<script src="./assets/js/scripts.js"></script>-->
-    <!--<link rel="stylesheet" href="./assets/css/styles.css" type="text/css">-->
-</head>
+<?php require_once 'templates/header.php'; ?>
 
 <body>
+    <br>
+    <a href="stats.php">Statystyki</a>
+    <br><br>
     <h4>Przydatne linki: </h4>
     <p><a href="https://htmlemail.io/inline/">https://htmlemail.io/inline/</a></p>
     <p><a href="https://templates.mailchimp.com/resources/inline-css/">https://templates.mailchimp.com/resources/inline-css/</a>
@@ -67,5 +61,3 @@
 </body>
 
 </html>
-
-<html>

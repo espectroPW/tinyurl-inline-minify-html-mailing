@@ -1,5 +1,7 @@
 //inliner
 var juice = require('juice');
+import $ from 'jquery';
+const Mustache = require('mustache');
 
 var link_changed = 0;
 var elements = 0;
@@ -184,6 +186,49 @@ https://tinyurl.com/5c385pdw -> https://www.tophifi.pl/?utm_term=12+stycznia+202
         //ljurski
         //vH87my2yWhYHcqxLmlWDDmx5j5tF1GzskufLPTV2DuF6RoL33tFlZ4fCdSxq
 */
+// ######################################################################
+// statsy
+
+var data_stats = '';
+
+$(document).ready(function() {
+    getDataFromApi();
+
+});
+
+function renderStats(dane) {
+    console.log(dane);
+    const template = document.getElementById('template').innerHTML;
+    const rendered = Mustache.render(template, data_stats);
+    document.getElementById('target').innerHTML = rendered;
+}
+
+function getDataFromApi() {
+
+    $.ajax({
+        url: 'https://api.tinyurl.com/analytics/general',
+        dataType: 'application/json',
+        type: 'GET',
+        async: false,
+        //contentType: 'application/x-www-form-urlencoded',
+        data: {
+            from : "2021-08-10",
+            api_token: "io8NOrrVpBXZp23NDPut5BhllCmJVa0ejwCC5dqOaMsRcBmJWggErAPrXFWT",
+        },
+        success: function(data, textStatus, jQxhr) {
+            var dane = jQuery.parseJSON(data);
+            console.log(dane);
+            data_stats = dane;
+            renderStats(data_stats);
+        },
+        error: function(jqXhr, textStatus, errorThrown) {
+            console.log(" err: " + textStatus + errorThrown);
+        }
+    });
+
+
+}
+
 
 
 import '../css/styles.css';

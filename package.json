@@ -1,8 +1,10 @@
 {
     "dependencies": {
+        "jquery": "^3.6.4",
         "inline-css": "^4.0.1",
         "juice": "^8.1.0",
-        "minify": "^9.1.0"
+        "minify": "^9.1.0",
+        "mustache": "^4.2.0"
     },
     "devDependencies": {
         "css-loader": "^6.7.3",
