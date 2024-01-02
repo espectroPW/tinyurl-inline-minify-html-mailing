@@ -2,23 +2,20 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-Ua-Compatible" content="IE=edge,chrome=1">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <!--<script data-main="scripts" src="./node_modules/juice/client.js"></script>-->
-    <script src="./dist/main.js"></script>
+<?php require_once 'templates/header.php'; ?>
+<script src="./dist/index.js"></script>
 
-    <!--<script src="./assets/js/scripts.js"></script>-->
-    <!--<link rel="stylesheet" href="./assets/css/styles.css" type="text/css">-->
 </head>
 
 <body>
+    <br>
+    <a href="stats.php">Statystyki</a>
+    <br><br>
     <h4>Przydatne linki: </h4>
     <p><a href="https://htmlemail.io/inline/">https://htmlemail.io/inline/</a></p>
     <p><a href="https://templates.mailchimp.com/resources/inline-css/">https://templates.mailchimp.com/resources/inline-css/</a>
     </p>
     <p><a href="https://www.willpeavy.com/tools/minifier/">https://www.willpeavy.com/tools/minifier/</a></p>
-    <p><a href="https://dashboard.unlayer.com/create/blank?ref=templates">DO tworzenia newsletterów</a></p>
 
     <div class="main_div">
         <h1>Wprowadz html do podmiany: </h1>
@@ -27,14 +24,6 @@
             <h3 class='stats'>Wykryto linków: <span></span></h3>
             <textarea contenteditable="true" id="url_to_change" name="url_to_change" value=""></textarea>
             <br>
-        </div>
-        <div style="display: flex; width: fit-content; margin: 0 auto;">
-            
-            <input type="radio" id="tinyurl" name="tinyurl" value="TinyUrl">
-            <label>TinyURL</label>
-            
-            <input type="radio" id="tinyurl" name="tinyurl" value="Audiostereo">
-            <label>Audiostereo</label>
         </div>
         <div class="regex">
             <h3 class='stats'>Podmianiono linków:<span></span></h3>
@@ -64,13 +53,12 @@
         <div>
             <span class="preview" data-preview-mode="1">Mobile</span>
             <span class="preview" data-preview-mode="2">Tablet</span>
-            <span class="preview" data-preview-mode="3">Desktop</span>
+            <span class="preview active" data-preview-mode="3">Desktop</span>
         </div>
-        <div id="cache_html"></div>
+        <br>
+        <div id="cache_html" style="width: 950px;"></div>
         <div id="cache_html_hiden"></div>
 
-        <br> ***************************************
-        <br>
 
 
     </div>
@@ -78,5 +66,3 @@
 </body>
 
 </html>
-
-<html>
