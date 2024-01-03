@@ -1,5 +1,5 @@
 //inliner
-
+const juice = require('juice');
 var link_changed = 0;
 var elements = 0;
 var link_unique = 0;
@@ -54,7 +54,7 @@ function procesUrlHtml() {
         if (old_url != 'undefined' && old_url) {
             debounce = setTimeout(function() {
                 if (old_url && old_url != ' ' && jQuery.inArray(old_url, list_changed_links) == -1) {
-                    getTiny(old_url);
+                    TinyUrlF(old_url);
                     elements += 1;
                 }
             }, 50);
@@ -70,6 +70,44 @@ function clearTextarea() {
     $(".stats span").text('');
 }
 
+function TinyUrlF(url) {
+    console.log("working !!");
+    let radio_val = $("input[name='tinyurlmethod']:checked").val();
+    console.log(radio_val);
+    if (radio_val == undefined) {
+        if ($("div.url_shorten_method").find("h2").length == 0) {
+            $("div.url_shorten_method").append("<h2 style='color:red;'>Zaznacz !!</h2>");
+            console.log("Zaznacz metodę skracania url !!!");
+        }
+    } else {
+        $("div.url_shorten_method h2").remove();
+    }
+    if (radio_val == "tinyurl") {
+        getTiny(url);
+    } else {
+        getAsUrl(url);
+    }
+}
+
+function getAsUrl(url) {
+    let randomU = randomUrl();
+    callFormAjaxUrl('https://www.audiostereo.pl/short/?short=' + randomU + '&url=' + url + '');
+    replaceUrl(url, "https://www.audiostereo.pl/short/" + randomU);
+}
+
+const callFormAjaxUrl = function(urlForm) {
+    $.ajax({
+        url: urlForm,
+        type: 'GET',
+        contentType: false,
+        processData: false,
+    });
+}
+
+function randomUrl() {
+    let random = (Math.random() + 1).toString(36).substring(8)
+    return random;
+}
 
 function getTiny(url) {
 
@@ -184,5 +222,3 @@ https://tinyurl.com/5c385pdw -> https://www.tophifi.pl/?utm_term=12+stycznia+202
         //vH87my2yWhYHcqxLmlWDDmx5j5tF1GzskufLPTV2DuF6RoL33tFlZ4fCdSxq
 */
 // ######################################################################
-
-

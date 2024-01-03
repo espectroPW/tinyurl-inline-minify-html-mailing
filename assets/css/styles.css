@@ -108,3 +108,14 @@ div#cache_html {
 }
 
 h3.stats {}
+
+div.url_shorten_method {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+div.url_shorten_method label {
+    margin-right: 20px;
+}

@@ -25,6 +25,14 @@
             <textarea contenteditable="true" id="url_to_change" name="url_to_change" value=""></textarea>
             <br>
         </div>
+        <div class="url_shorten_method">
+            <h3>Metoda skracania url:</h3><br>
+            <input type="radio" id="tinyurl" name="tinyurlmethod" value="tinyurl" />
+            <label for="tinyurlmethod">TinyURL</label>
+
+            <input type="radio" id="asurl" name="tinyurlmethod" value="asurl" />
+            <label for="tinyurlmethod">AS URL</label>
+        </div>
         <div class="regex">
             <h3 class='stats'>Podmianiono linków:<span></span></h3>
             <textarea id="regex"></textarea>
