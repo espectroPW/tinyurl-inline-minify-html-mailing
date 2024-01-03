@@ -1,0 +1,32 @@
+//reeadme
+
+
+apka do podmiany linków a href="" na tinyurl
+
+do konwersji css na inline
+
+do minifikacji htmlki 
+
+
+
+
+
+Zrobione:
+1. Podmiana a href="" na tinyurl
+2. Konwersja css styli na inline
+2.1. Outlook wersje.
+3. Minifikacja htmlki wyjściowej z poprzednich kroków.
+
+
+
+Użyte skrypty:
+npm juice  https://www.npmjs.com/package/juice
+npm inline-css
+
+
+
+Instalacja
+
+npm install
+
+
